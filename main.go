@@ -225,7 +225,7 @@ func main() {
 	})
 
 	go executeCronJob()
-	e.Logger.Fatal(e.Start(getPort()))
+	e.Logger.Fatal(e.Start(":8080"))
 
 }
 

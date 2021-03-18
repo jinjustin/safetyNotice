@@ -1,1 +1,1 @@
-web: safety-notice
+web: linebot
