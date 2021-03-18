@@ -463,7 +463,13 @@ func myTask() {
 		strHr = strconv.Itoa(hr)
 	}
 
-	t := strHr + ":" + strconv.Itoa(min) + ":00"
+	if min < 10 {
+		strMin = "0" + strconv.Itoa(min)
+	}else{
+		strMin = strconv.Itoa(min)
+	}	
+
+	t := strHr + ":" + strMin + ":00"
 
 	fmt.Println(t)
 
