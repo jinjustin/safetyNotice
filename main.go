@@ -488,15 +488,6 @@ func executeCronJob() {
 	<-gocron.Start()
 }
 
-func getPort() string {
-	var port = os.Getenv("PORT") 
-	if port == "" {
-	   port = "8080"
-	   fmt.Println("No Port In Heroku" + port)
-	}
-	return ":" + port
-}
-
 /*if event.Message.Type == "image"{
 
 	fmt.Println(event.Message)
