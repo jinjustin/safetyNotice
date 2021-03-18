@@ -73,15 +73,6 @@ var ChannelToken = "wXBBVwTFuP/RewWyGJEQGKQG5fuG+NwMhkElufZsGk9TVgOHCm2Fdg8/MkVh
 
 func main() {
 
-	func getPort() string {
-		var port = os.Getenv("PORT") 
-		if port == "" {
-		   port = "8080"
-		   fmt.Println("No Port In Heroku" + port)
-		}
-		return ":" + port
-   }
-
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "ok")
@@ -495,6 +486,15 @@ func myTask() {
 func executeCronJob() {
 	gocron.Every(60).Second().Do(myTask)
 	<-gocron.Start()
+}
+
+func getPort() string {
+	var port = os.Getenv("PORT") 
+	if port == "" {
+	   port = "8080"
+	   fmt.Println("No Port In Heroku" + port)
+	}
+	return ":" + port
 }
 
 /*if event.Message.Type == "image"{
