@@ -456,6 +456,7 @@ func myTask() {
 	hr, min, _ := timeStamp.Clock()
 
 	var strHr string
+	var strMin string
 
 	if hr < 10 {
 		strHr = "0" + strconv.Itoa(hr)
