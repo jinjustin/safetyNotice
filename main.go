@@ -225,7 +225,7 @@ func main() {
 	})
 
 	go executeCronJob()
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(getPort()))
 
 }
 
@@ -486,6 +486,15 @@ func myTask() {
 func executeCronJob() {
 	gocron.Every(60).Second().Do(myTask)
 	<-gocron.Start()
+}
+
+func getPort() string {
+	var port = os.Getenv("PORT") 
+	if port == "" {
+	   port = "8080"
+	   fmt.Println("No Port In Heroku" + port)
+	}
+	return ":" + port
 }
 
 /*if event.Message.Type == "image"{
